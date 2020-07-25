@@ -1,4 +1,4 @@
-package cloud.netdiff.musicplayer.playfragment
+package cloud.netdiff.musicplayer.play
 
 import androidx.lifecycle.ViewModel
 
