@@ -6,14 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import cloud.netdiff.musicplayer.R
 
 class ListFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ListFragment()
-    }
-
     private lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
@@ -25,8 +21,7 @@ class ListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
     }
 
 }
