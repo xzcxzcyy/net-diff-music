@@ -23,6 +23,12 @@ class ListFragment : Fragment() {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.list_fragment, container, false)
         val myActivity = activity as AppCompatActivity
         myActivity.setSupportActionBar(dataBinding.toolbar)
+        dataBinding.toolbarLayout.title = "未命名歌单"
+
+        //TODO: get list name out of database, and change the toolbar title
+
+
+
         return dataBinding.root
     }
 
