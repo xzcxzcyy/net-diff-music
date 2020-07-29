@@ -2,62 +2,91 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/textLocal"
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:background="#ED4848">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/searchEdit"
-            android:layout_marginTop="30dp"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:hint="查询歌曲"
-            android:background="@drawable/search_bg"/>
-
-    </FrameLayout>
+            android:layout_height="match_parent">
 
 
-    <com.patryk1007.zoomviewpager.ZoomHeaderViewPager
+            <FrameLayout
+                android:id="@+id/textLocal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#ED4848">
+
+                <EditText
+                    android:id="@+id/searchEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/search_bg"
+                    android:hint="查询歌曲"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textLocal"
+                android:orientation="vertical" />
+
+
+            <com.patryk1007.zoomviewpager.ZoomHeaderViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textLocal"
+                android:layout_marginTop="75dp"
+                app:hvPadding="10dp"
+                app:hvTextAlpha="0.2"
+                app:hvTextAlphaActiveTab="0.9"
+                app:hvTextColor="#000000"
+                app:hvTextColorActiveTab="#fff"
+                app:hvTextScale="0.6"
+                app:hvTextScaleActiveTab="0.9"
+                app:hvTextSize="18sp"
+                android:textStyle="bold">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="690dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.0"
+                    android:flipInterval="30"
+                    android:persistentDrawingCache="animation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintVertical_bias="0.0">
+
+                </androidx.viewpager.widget.ViewPager>
+
+            </com.patryk1007.zoomviewpager.ZoomHeaderViewPager>
+
+        </RelativeLayout>
+
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:hvPadding="10dp"
-        app:hvTextAlpha="0.2"
-        app:hvTextAlphaActiveTab="0.9"
-        app:hvTextColor="#000000"
-        app:hvTextColorActiveTab="#fff"
-        app:hvTextScale="0.6"
-        app:hvTextScaleActiveTab="0.9"
-        app:hvTextSize="30sp"
-        android:layout_marginTop="70dp">
+        android:layout_gravity="start"
+        android:background="#FFF"
+        android:textSize="30sp"
+        android:text="drawer"/>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="690dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:flipInterval="30"
-            android:persistentDrawingCache="animation"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            app:layout_constraintVertical_bias="0.0">
-
-        </androidx.viewpager.widget.ViewPager>
-
-    </com.patryk1007.zoomviewpager.ZoomHeaderViewPager>
-
-</RelativeLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
