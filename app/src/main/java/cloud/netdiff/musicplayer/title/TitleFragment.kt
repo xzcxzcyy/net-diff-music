@@ -1,6 +1,8 @@
 package cloud.netdiff.musicplayer.title
 
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +30,19 @@ class TitleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //去掉状态栏
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            val window = requireActivity().window
+            val decorView = window.decorView
+            val option = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+            decorView.systemUiVisibility = option
+            window.navigationBarColor = Color.TRANSPARENT
+            window.statusBarColor = Color.TRANSPARENT
+        }
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.title_fragment, container, false)
         var view1: View? = null
         var view2: View? = null
